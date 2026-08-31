@@ -1,0 +1,41 @@
+import uuid
+
+from sqlalchemy.dialects.postgresql import UUID as PG_UUID
+from sqlalchemy.types import CHAR, TypeDecorator
+
+
+class GUID(TypeDecorator):
+    """
+    Platform-independent UUID column.
+
+    - On PostgreSQL: uses the native UUID type.
+    - On any other dialect (e.g. SQLite, used only for running the pytest
+      suite quickly without a real Postgres instance): stores as a 32-char
+      hex string.
+
+    Application code always works with plain `uuid.UUID` objects either way.
+    """
+
+    impl = CHAR
+    cache_ok = True
+
+    def load_dialect_impl(self, dialect):
+        if dialect.name == "postgresql":
+            return dialect.type_descriptor(PG_UUID(as_uuid=True))
+        return dialect.type_descriptor(CHAR(32))
+
+    def process_bind_param(self, value, dialect):
+        if value is None:
+            return value
+        if dialect.name == "postgresql":
+            return str(value)
+        if not isinstance(value, uuid.UUID):
+            return uuid.UUID(str(value)).hex
+        return value.hex
+
+    def process_result_value(self, value, dialect):
+        if value is None:
+            return value
+        if isinstance(value, uuid.UUID):
+            return value
+        return uuid.UUID(value)

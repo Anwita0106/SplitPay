@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  font-family: Inter, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply text-slate-900 antialiased;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(96, 165, 250, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(251, 146, 60, 0.14), transparent 24%),
+    linear-gradient(180deg, #f8fbff 0%, #f4f8ff 36%, #f8fafc 100%);
+}
+
+#root {
+  @apply min-h-screen;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  transition: all 0.18s ease;
+}
+
+input,
+select,
+textarea {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-200 focus-visible:ring-offset-2;
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.18);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #bfdbfe;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #93c5fd;
+}
+
+@layer components {
+  .fintech-card {
+    @apply rounded-2xl border border-blue-100/80 bg-white/90 shadow-soft backdrop-blur-sm;
+  }
+
+  .fintech-header {
+    @apply mb-1 text-xl font-black tracking-tight text-slate-900 sm:text-2xl;
+  }
+
+  .section-label {
+    @apply text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500;
+  }
+
+  .badge-emerald {
+    @apply border border-emerald-100 bg-emerald-50 text-emerald-700;
+  }
+
+  .badge-rose {
+    @apply border border-rose-100 bg-rose-50 text-rose-700;
+  }
+
+  .badge-brand {
+    @apply border border-brand-100 bg-brand-50 text-brand-700;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, rgba(239, 246, 255, 1) 25%, rgba(191, 219, 254, 0.8) 37%, rgba(239, 246, 255, 1) 63%);
+  background-size: 400% 100%;
+  @apply animate-shimmer rounded-xl;
+}

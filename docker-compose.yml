@@ -1,0 +1,63 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: splitpay-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-splitpay}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-splitpay}
+      POSTGRES_DB: ${POSTGRES_DB:-splitpay}
+    ports:
+      - "5433:5432"
+    volumes:
+      - splitpay_pg_data:/var/lib/postgresql/data
+      - ./backend/app/db/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql:ro
+      - ./scripts/init-extensions.sql:/docker-entrypoint-initdb.d/0-extensions.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-splitpay}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: splitpay-redis
+    restart: unless-stopped
+    ports:
+      - "6380:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: ./backend
+    container_name: splitpay-backend
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env
+    environment:
+      DATABASE_URL: postgresql+psycopg2://${POSTGRES_USER:-splitpay}:${POSTGRES_PASSWORD:-splitpay}@postgres:5432/${POSTGRES_DB:-splitpay}
+      REDIS_URL: redis://redis:6379/0
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - "8001:8000"
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: splitpay-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "5173:80"
+
+volumes:
+  splitpay_pg_data:
