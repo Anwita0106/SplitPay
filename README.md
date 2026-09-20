@@ -10,7 +10,6 @@ SplitPay is a full-stack app for groups (a trip, a flat, a dinner club). You log
 
 ## Screenshots
 
-> Save your screenshots in `docs/screenshots/` using the file names below (or change the paths here).
 
 ### Login
 ![Login page](docs/screenshots/login.png)
@@ -567,16 +566,3 @@ Ideas for next steps: real gateway integration, refresh tokens, webhook processi
 
 ---
 
-## Plain-English glossary
-
-| Term | Meaning |
-|---|---|
-| **Idempotent** | Doing it twice has the same effect as doing it once. Tapping "Pay" twice must not charge twice. |
-| **Webhook** | A message the payment provider sends to our server to say "this payment finished". |
-| **HMAC signature** | A secret-based stamp proving the message really came from the provider and wasn't altered. |
-| **Migration** | A versioned change to the database structure, applied by a tool (Alembic) instead of by hand. |
-| **Draft** | A prepared-but-unsaved change. Nothing happens until the user confirms it. |
-| **UUID** | A long random id (like `3f2b…`) used instead of names to identify things. |
-| **Decimal / NUMERIC** | Exact number types for money, unlike floating point which can drift by a paisa. |
-| **Cache** | A fast temporary copy of data. Here it is only for display, never for decisions. |
-| **Row lock** | A database feature that makes two simultaneous changes to the same record wait their turn. |
