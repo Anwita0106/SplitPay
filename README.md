@@ -16,28 +16,20 @@ SplitPay is a full-stack app for groups (a trip, a flat, a dinner club). You log
 ![Login page](docs/screenshots/login.png)
 
 ### Dashboard (home)
-![Dashboard](docs/screenshots/dashboard.png)
+![Dashboard](docs/screenshots/home.png)
 
 ### Groups
-![Groups list and create-group form](docs/screenshots/groups.png)
+![Groups list and create-group form](docs/screenshots/group_creation.png)
 
 ### Group details — members, balances, expenses
-![Group details](docs/screenshots/group-details.png)
+![Group details](docs/screenshots/group.png)
 
 ### Add / edit expense
-![Add expense](docs/screenshots/add-expense.png)
+![Add expense](docs/screenshots/bill.png)
 
-### Settlements
-![Settlements](docs/screenshots/settlements.png)
-
-### Transactions
-![Transactions list](docs/screenshots/transactions.png)
 
 ### AI assistant — draft, confirm, and balance questions
-![AI assistant](docs/screenshots/ai-assistant.png)
-
-### Dark mode
-![Dark mode](docs/screenshots/dark-mode.png)
+![AI assistant](docs/screenshots/ai.png)
 
 ---
 
