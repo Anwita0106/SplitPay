@@ -8,23 +8,36 @@ SplitPay is a full-stack app for groups (a trip, a flat, a dinner club). You log
 
 ---
 
-## Contents
+## Screenshots
 
-1. [Features](#features)
-2. [System architecture](#system-architecture)
-3. [Data model](#data-model)
-4. [How balances work](#how-balances-work)
-5. [Payment flow](#payment-flow)
-6. [AI assistant](#ai-assistant)
-7. [Keeping data correct](#keeping-data-correct)
-8. [Project structure](#project-structure)
-9. [Getting started](#getting-started)
-10. [Try it in 2 minutes](#try-it-in-2-minutes)
-11. [API overview](#api-overview)
-12. [Testing](#testing)
-13. [Security](#security)
-14. [Limitations and next steps](#limitations-and-next-steps)
-15. [Plain-English glossary](#plain-english-glossary)
+> Save your screenshots in `docs/screenshots/` using the file names below (or change the paths here).
+
+### Login
+![Login page](docs/screenshots/login.png)
+
+### Dashboard (home)
+![Dashboard](docs/screenshots/dashboard.png)
+
+### Groups
+![Groups list and create-group form](docs/screenshots/groups.png)
+
+### Group details — members, balances, expenses
+![Group details](docs/screenshots/group-details.png)
+
+### Add / edit expense
+![Add expense](docs/screenshots/add-expense.png)
+
+### Settlements
+![Settlements](docs/screenshots/settlements.png)
+
+### Transactions
+![Transactions list](docs/screenshots/transactions.png)
+
+### AI assistant — draft, confirm, and balance questions
+![AI assistant](docs/screenshots/ai-assistant.png)
+
+### Dark mode
+![Dark mode](docs/screenshots/dark-mode.png)
 
 ---
 
@@ -375,7 +388,8 @@ splitpay/
 │   ├── Dockerfile · nginx.conf
 │   └── package.json
 ├── scripts/                 init-extensions.sql, real-PostgreSQL check scripts
-├── docs/                    deeper design notes (AI agent, system design, changelog)
+├── docs/                    design notes (AI agent, system design, changelog)
+│   └── screenshots/         images used in this README
 └── docker-compose.yml       postgres · redis · backend · frontend
 ```
 
