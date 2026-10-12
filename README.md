@@ -550,7 +550,7 @@ python scripts/concurrency_pg.py       # parallel confirms and settlements stay 
 
 ---
 
-## Limitations and next steps
+## Limitations and next steps  
 
 Honest list of what this project does **not** do:
 
