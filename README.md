@@ -8,7 +8,7 @@ SplitPay is a full-stack app for groups (a trip, a flat, a dinner club). You log
 
 ---
 
-## Screenshots
+## Screenshots  
 
 ### Login
 ![Login page](docs/screenshots/login.png)
