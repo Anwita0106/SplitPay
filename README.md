@@ -6,7 +6,7 @@ SplitPay is a full-stack app for groups (a trip, a flat, a dinner club). You log
 
 > **Payments are a sandbox.** There is no real bank or gateway behind them. A test-only endpoint plays the part of "the user paid in their UPI app" and triggers the same signed-webhook path a real provider would use. See [Payment flow](#payment-flow).
 
----
+---                                                                                                                                          
 
 ## Screenshots  
 
