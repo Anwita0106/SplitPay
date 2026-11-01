@@ -2,7 +2,7 @@
 
 **Split shared expenses, see exactly who owes whom, and settle up — with a local AI assistant that can prepare changes but never make them without your click.**
 
-SplitPay is a full-stack app for groups (a trip, a flat, a dinner club). You log who paid for what, it works out everyone's balance, shrinks the debts into the fewest possible payments, and lets people pay each other through a UPI-style payment flow. A built-in assistant answers questions like *"Who owes me money in Goa Trip?"* and drafts expenses and settlements from plain English.
+SplitPay is a full-stack app for groups (a trip, a flat, a dinner club). You log who paid for what, it works out everyone's balance, shrinks the debts into the fewest possible payments, and lets people pay each other through a UPI-style payment flow. A built-in assistant answers questions like *"Who owes me money in Goa Trip?"* and drafts expenses and settlements from plain English.      
 
 > **Payments are a sandbox.** There is no real bank or gateway behind them. A test-only endpoint plays the part of "the user paid in their UPI app" and triggers the same signed-webhook path a real provider would use. See [Payment flow](#payment-flow).
 
